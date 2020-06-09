@@ -3,11 +3,32 @@
 'use strict'
 
 const jsonFuture = require('json-future')
-const getStdin = require('../getStdin.js')
+// const getStdin = require('../getStdin.js')
 const { concat } = require('lodash')
 const cheerio = require('cheerio')
 
 const REGEX_SEPARATOR = new RegExp('<br>', 'g')
+
+const {stdin} = process;
+console.log(stdin);
+
+const getStdin = () => {
+    return new Promise((resolve, reject) => {
+        let result = '';
+
+        if (stdin.isTTY) {
+            return result;
+        }
+    
+        stdin.setEncoding('utf8');
+    
+        for (const chunk of stdin) {
+            result += chunk;
+        }
+    
+        resolve(result)
+    })
+};
 
 const save = body => {
   return new Promise ((resolve, reject) => {
