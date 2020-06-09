@@ -9,8 +9,8 @@ const cheerio = require('cheerio')
 
 const REGEX_SEPARATOR = new RegExp('<br>', 'g')
 
+console.log(process);
 const {stdin} = process;
-console.log(stdin);
 
 const getStdin = () => {
     return new Promise((resolve, reject) => {
