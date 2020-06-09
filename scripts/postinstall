@@ -30,13 +30,12 @@ const getStdin = () => {
           for (const chunk in results) {
             result += chunk;
           }
+          resolve(result)
         })
 
         // for await (const chunk of stdin) {
         //   result += chunk;
         // }
-    
-        resolve(result)
     })
 };
 
