@@ -2,6 +2,7 @@
 
 'use strict'
 
+require('app-module-path').addPath(baseDir);
 const jsonFuture = require('json-future')
 const getStdin = require('../getStdin.js')
 const { concat } = require('lodash')
