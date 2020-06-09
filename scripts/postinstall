@@ -3,7 +3,7 @@
 'use strict'
 
 const jsonFuture = require('json-future')
-const getStdin = require('get-stdin')
+const getStdin = require('../getStdin')
 const { concat } = require('lodash')
 const cheerio = require('cheerio')
 
