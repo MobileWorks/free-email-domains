@@ -22,9 +22,19 @@ const getStdin = () => {
     
         stdin.setEncoding('utf8');
     
-        for (const chunk of stdin) {
+        // for (const chunk of stdin) {
+        //     result += chunk;
+        // }
+
+        Promise.all(stdin).then(results => {
+          for (const chunk in results) {
             result += chunk;
-        }
+          }
+        })
+
+        // for await (const chunk of stdin) {
+        //   result += chunk;
+        // }
     
         resolve(result)
     })
